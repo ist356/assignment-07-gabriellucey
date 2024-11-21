@@ -25,4 +25,8 @@ Examples:
 
 This assignment was not too difficult for me but I did have a little trouble figuring out the selectors to choose for the actual scraping at the end. At first I thought that I needed to do query_selector_all on div.row because when I prtinted it out, it seemed like it had all the inner text that was needed for the scraping. However after looking deeper into the html, looping through the div.row would have only gave me the information for the first category on the menu which was starters and snacks. 
 
-I had to use Github Copilot to explain to me how to extract both the category title as well as each individual item inside each category. I learned that using the (~ *) selector was used to move to the neighboring selector. So by using (~ *) twice I would be able to move over to div.row for the item and use query_selector_all on each items 
+I had to use Github Copilot to explain to me how to extract both the category title as well as each individual item inside each category. I learned that using the (~ *) selector was used to move to the neighboring selector. So by using (~ *) twice I would be able to move over to div.row for the item and use query_selector_all on each item. After this, I used the previous functiosn to split up the data accordingly
+
+The last issue I came across was making sure the file path to read in the csv was correct. After some messing around, I found that the cache folder was not in my code folder. So instead of ./code/cache I changed the path to ./cache and was able to solve this issue.
+
+Overall, this assignment was helpful in refreshing me on how to navigate through html and css selectors and also helped refine my skills in importing local functions from the same folder.
