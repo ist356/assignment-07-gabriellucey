@@ -8,9 +8,7 @@ def tullyscraper(playwright: Playwright) -> None:
     browser = playwright.chromium.launch(headless=False)
     context = browser.new_context()
     page = context.new_page()
-    page.goto("https://www.tullysgoodtimes.com/menus/")
-
-    # TODO Write code here
+  
     items = []
     for item in page.query_selector_all("h3.foodmenu__menu-section-title"):
         title = item.inner_text()
@@ -20,7 +18,6 @@ def tullyscraper(playwright: Playwright) -> None:
             items.append(menu_item.to_dict())
     data = pd.DataFrame(items)
     data.to_csv("./cache/tullys_menu.csv", index=False)
-    # ---------------------
     context.close()
     browser.close()
 
