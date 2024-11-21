@@ -11,7 +11,15 @@ def tullyscraper(playwright: Playwright) -> None:
     page.goto("https://www.tullysgoodtimes.com/menus/")
 
     # TODO Write code here
-    
+    items = []
+    for item in page.query_selector_all("h3.foodmenu__menu-section-title"):
+        title = item.inner_text()
+        for row in item.query_selector("~ *").query_selector("~ *").query_selector_all("div.foodmenu__menu-item"):
+            text = row.inner_text()
+            menu_item = extract_menu_item(title, text)
+            items.append(menu_item.to_dict())
+    data = pd.DataFrame(items)
+    data.to_csv("./cache/tullys_menu.csv", index=False)
     # ---------------------
     context.close()
     browser.close()

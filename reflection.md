@@ -1,7 +1,7 @@
 # Reflection
 
-Student Name:  name
-Sudent Email:  email
+Student Name:  Gabriel Lucey
+Sudent Email:  gplucey@syr.edu
 
 ## Instructions
 
@@ -23,3 +23,6 @@ Examples:
 
 `--- Reflection Below This Line ---`
 
+This assignment was not too difficult for me but I did have a little trouble figuring out the selectors to choose for the actual scraping at the end. At first I thought that I needed to do query_selector_all on div.row because when I prtinted it out, it seemed like it had all the inner text that was needed for the scraping. However after looking deeper into the html, looping through the div.row would have only gave me the information for the first category on the menu which was starters and snacks. 
+
+I had to use Github Copilot to explain to me how to extract both the category title as well as each individual item inside each category. I learned that using the (~ *) selector was used to move to the neighboring selector. So by using (~ *) twice I would be able to move over to div.row for the item and use query_selector_all on each items 
