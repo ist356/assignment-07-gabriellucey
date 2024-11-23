@@ -8,7 +8,7 @@ def tullyscraper(playwright: Playwright) -> None:
     browser = playwright.chromium.launch(headless=False)
     context = browser.new_context()
     page = context.new_page()
-  
+    page.goto("https://www.tullysgoodtimes.com/menus/")
     items = []
     for item in page.query_selector_all("h3.foodmenu__menu-section-title"):
         title = item.inner_text()
